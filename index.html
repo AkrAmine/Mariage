@@ -1794,12 +1794,12 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
 <script>
 const CONFIG = {
   groom: "أمين", bride: "ميساء",
-  date: "2026-12-28T21:00:00",          // drives countdown, calendar grid, .ics, all date text
+  date: "2026-12-28T21:00:00",
   dateLabel: "الإثنين 28 ديسمبر 2026",
   time: "21:00",
   venue: "بلدية القصبة", city: "تونس",
   mapsQuery: "بلدية القصبة, تونس",
-    date1: "2026-12-26T19:00:00",
+  date1: "2026-12-26T19:00:00",
   time1: "19:00",
   venue1: "الڨمودي للأفرح",
   city1: "سيدي بوزيد",
@@ -1807,113 +1807,163 @@ const CONFIG = {
   groomParents: "M. et Mme [Père du marié] & [Mère du marié]",
   brideParents: "M. et Mme [Père de la mariée] & [Mère de la mariée]",
   whatsapp: "213XXXXXXXXX",
-  rsvpDeadline: ""                      // optional; if empty, no deadline is shown
+  rsvpDeadline: ""
 };
 
 (() => {
   const $ = s => document.querySelector(s);
   const root = document.documentElement;
-  /* Grain du velours : bitmap généré une fois (moins coûteux qu'un filtre SVG pendant le zoom) */
-  try {
-    const cv = document.createElement('canvas'); cv.width = cv.height = 128;
-    const cx = cv.getContext('2d'), im = cx.createImageData(128, 128);
-    for (let i = 0; i < im.data.length; i += 4) { const v = Math.random(); im.data[i] = 120; im.data[i + 1] = 98; im.data[i + 2] = 70; im.data[i + 3] = v > .5 ? (v - .5) * 34 : 0; }
-    cx.putImageData(im, 0, 0);
-    root.style.setProperty('--noise', `url(${cv.toDataURL()})`);
-  } catch {}
+  const safe = (name, fn) => { try { fn(); } catch (e) { console.error('[' + name + ']', e); } };
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const C = CONFIG, D = new Date(C.date);
-  const fmt = o => new Intl.DateTimeFormat('fr-FR', o).format(D);
-  const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
-  const couple = `${C.groom} & ${C.bride}`;
 
-  /* ----- Remplissage depuis CONFIG ----- */
-  const V = { ...C, day: D.getDate(), weekday: cap(fmt({ weekday: 'long' })), monthYear: cap(fmt({ month: 'long', year: 'numeric' })) };
-  document.querySelectorAll('[data-k]').forEach(el => { const v = V[el.dataset.k]; if (v != null && v !== '') el.textContent = v; });
-  document.title = `${couple} · Invitation au mariage`;
+  /* ===== 1. Ouverture de l'écrin (en premier, indépendante du reste) ===== */
+  safe('intro', () => {
+    const intro = $('#intro'), inner = $('#introInner'), box = $('.box');
+    if (!intro) { root.classList.remove('locked'); document.body.classList.add('opened'); return; }
 
-  if (C.rsvpDeadline) { const dl = $('#deadline'); dl.textContent = `Merci de répondre avant le ${C.rsvpDeadline}.`; dl.hidden = false; }
+    let started = false, done = false;
+    const timers = [];
+    const later = (fn, ms) => timers.push(setTimeout(fn, ms));
 
-  /* ----- Rangs de perles (graduées vers le centre) ----- */
-  document.querySelectorAll('[data-pearls]').forEach(row => {
-    const n = 17, mid = (n - 1) / 2;
-    for (let i = 0; i < n; i++) {
-      const d = Math.abs(i - mid), s = 12 - d * 0.75;
-      const p = document.createElement('span');
-      p.className = 'pearl'; p.style.width = p.style.height = s + 'px'; p.style.setProperty('--d', d);
-      row.appendChild(p);
+    function finish() {
+      if (done) return; done = true;
+      timers.forEach(clearTimeout);
+      intro.hidden = true; intro.style.display = 'none';
+      root.classList.remove('locked'); document.body.classList.add('opened');
+      if (started) { try { $('#main')?.focus({ preventScroll: true }); } catch {} }
     }
-  });
 
-
-  /* ----- Compte à rebours ----- */
-  const pad = n => String(n).padStart(2, '0');
-  function countdown(date, s) {
-    const target = new Date(date);
-    const el = {
-      d: $('#cdD' + s), h: $('#cdH' + s), m: $('#cdM' + s), s: $('#cdS' + s),
-      tiles: $('#tiles' + s), done: $('#cdDone' + s)
-    };
-    if (!el.d) return;
-    let timer;
-    function tick() {
-      let t = Math.floor((target - Date.now()) / 1000);
-      if (t <= 0) { el.tiles.hidden = true; el.done.hidden = false; clearInterval(timer); return; }
-      el.d.textContent = pad(Math.floor(t / 86400)); t %= 86400;
-      el.h.textContent = pad(Math.floor(t / 3600)); t %= 3600;
-      el.m.textContent = pad(Math.floor(t / 60));
-      el.s.textContent = pad(t % 60);
+    function open() {
+      if (started) return; started = true;
+      if (reduce) {
+        intro.classList.add('fade'); document.body.classList.add('opened');
+        later(finish, 520); return;
+      }
+      intro.classList.add('opening');
+      later(() => intro.classList.add('glint'), 820);
+      later(() => {
+        try {
+          const rings = $('#boxRings');
+          if (rings && inner) {
+            const r = rings.getBoundingClientRect(), b = inner.getBoundingClientRect();
+            inner.style.transformOrigin = `${r.left + r.width / 2 - b.left}px ${r.top + r.height * 0.55 - b.top}px`;
+          }
+        } catch {}
+        intro.classList.add('zoom'); document.body.classList.add('opened');
+      }, 1750);
+      later(finish, 2650);
     }
-    tick(); timer = setInterval(tick, 1000);
-  }
-  countdown(C.date, '');     // mariage : cdD, cdH, cdM, cdS
-  countdown(C.date1, '1');   // henné   : cdD1, cdH1, cdM1, cdS1
 
-  /* ----- Apparitions au défilement ----- */
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }),
-    { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+    if (root.classList.contains('skip-intro')) { finish(); return; }
 
-   /* ----- Ouverture de l'écrin (automatique) ----- */
-  const intro = $('#intro'), inner = $('#introInner');
-  let started = false;
-  function finish() {
-    intro.hidden = true; intro.style.display = 'none';
-    root.classList.remove('locked'); document.body.classList.add('opened');
-    if (started) $('#main').focus({ preventScroll: true });
-  }
-  function open() {
-    if (started) return; started = true;
-    if (reduce) { intro.classList.add('fade'); document.body.classList.add('opened'); setTimeout(finish, 520); return; }
-    intro.classList.add('opening');
-    setTimeout(() => intro.classList.add('glint'), 820);
-    setTimeout(() => {
-      const r = $('#boxRings').getBoundingClientRect(), b = inner.getBoundingClientRect();
-      inner.style.transformOrigin = `${r.left + r.width / 2 - b.left}px ${r.top + r.height * 0.55 - b.top}px`;
-      intro.classList.add('zoom'); document.body.classList.add('opened');
-    }, 1750);
-    setTimeout(finish, 2650);
-  }
-  if (root.classList.contains('skip-intro')) finish();
-  else {
     root.classList.add('locked');
+    $('#skip')?.addEventListener('click', () => { started = true; finish(); });
+    intro.addEventListener('click', () => open());               // un tap ouvre aussi la boîte
 
-	 $('#skip')?.addEventListener('click', () => { started = true; finish(); });
     if (reduce) {
-      setTimeout(open, 1200);
+      later(open, 1200);
     } else {
-      // La boîte tourne 2 fois, puis s'ouvre toute seule
-      intro.classList.add('spin');
-      $('.box').addEventListener('animationend', e => {
+      // On démarre la rotation après le premier affichage (iOS ignore parfois sinon)
+      requestAnimationFrame(() => requestAnimationFrame(() => intro.classList.add('spin')));
+      box?.addEventListener('animationend', e => {
         if (e.animationName !== 'boxSpin') return;
         intro.classList.remove('spin');
         open();
       });
-      setTimeout(open, 4200); // sécurité si animationend ne se déclenche pas
+      later(open, 4200);                                          // si animationend ne se déclenche pas
     }
+
+    later(finish, 9000);                                          // filet de sécurité final
+
+    // Retour arrière du navigateur (iPhone) : on n'affiche pas l'intro de nouveau
+    addEventListener('pageshow', e => { if (e.persisted) finish(); });
+  });
+
+  /* ===== 2. Grain du velours ===== */
+  safe('noise', () => {
+    const cv = document.createElement('canvas'); cv.width = cv.height = 128;
+    const cx = cv.getContext('2d'), im = cx.createImageData(128, 128);
+    for (let i = 0; i < im.data.length; i += 4) {
+      const v = Math.random();
+      im.data[i] = 120; im.data[i + 1] = 98; im.data[i + 2] = 70;
+      im.data[i + 3] = v > .5 ? (v - .5) * 34 : 0;
+    }
+    cx.putImageData(im, 0, 0);
+    root.style.setProperty('--noise', `url(${cv.toDataURL()})`);
+  });
+
+  /* ===== 3. Remplissage depuis CONFIG ===== */
+  const C = CONFIG, D = new Date(C.date);
+  safe('config', () => {
+    const fmt = o => new Intl.DateTimeFormat('fr-FR', o).format(D);
+    const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+    const couple = `${C.groom} & ${C.bride}`;
+    const V = { ...C, day: D.getDate(), weekday: cap(fmt({ weekday: 'long' })), monthYear: cap(fmt({ month: 'long', year: 'numeric' })) };
+    document.querySelectorAll('[data-k]').forEach(el => {
+      const v = V[el.dataset.k]; if (v != null && v !== '') el.textContent = v;
+    });
+    document.title = `${couple} · Invitation au mariage`;
+    const dl = $('#deadline');
+    if (C.rsvpDeadline && dl) { dl.textContent = `Merci de répondre avant le ${C.rsvpDeadline}.`; dl.hidden = false; }
+  });
+
+  /* ===== 4. Rangs de perles ===== */
+  safe('pearls', () => {
+    document.querySelectorAll('[data-pearls]').forEach(row => {
+      const n = 17, mid = (n - 1) / 2;
+      for (let i = 0; i < n; i++) {
+        const d = Math.abs(i - mid), s = 12 - d * 0.75;
+        const p = document.createElement('span');
+        p.className = 'pearl'; p.style.width = p.style.height = s + 'px'; p.style.setProperty('--d', d);
+        row.appendChild(p);
+      }
+    });
+  });
+
+  /* ===== 5. Comptes à rebours (mariage + henné) ===== */
+  const pad = n => String(n).padStart(2, '0');
+  function countdown(date, s) {
+    safe('countdown' + s, () => {
+      const target = new Date(date);
+      const el = {
+        d: $('#cdD' + s), h: $('#cdH' + s), m: $('#cdM' + s), s: $('#cdS' + s),
+        tiles: $('#tiles' + s), done: $('#cdDone' + s)
+      };
+      if (!el.d || isNaN(target)) return;
+      let timer;
+      function tick() {
+        let t = Math.floor((target - Date.now()) / 1000);
+        if (t <= 0) {
+          if (el.tiles) el.tiles.hidden = true;
+          if (el.done) el.done.hidden = false;
+          clearInterval(timer); return;
+        }
+        el.d.textContent = pad(Math.floor(t / 86400)); t %= 86400;
+        el.h.textContent = pad(Math.floor(t / 3600)); t %= 3600;
+        el.m.textContent = pad(Math.floor(t / 60));
+        el.s.textContent = pad(t % 60);
+      }
+      tick(); timer = setInterval(tick, 1000);
+    });
   }
-const cue = $('.scroll-cue');
-  if (cue) addEventListener('scroll', () => cue.classList.toggle('gone', scrollY > 40), { passive: true });
+  countdown(C.date, '');
+  countdown(C.date1, '1');
+
+  /* ===== 6. Apparitions au défilement ===== */
+  safe('reveal', () => {
+    const els = document.querySelectorAll('.rv');
+    if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+  });
+
+  /* ===== 7. Indicateur de défilement ===== */
+  safe('cue', () => {
+    const cue = $('.scroll-cue');
+    if (cue) addEventListener('scroll', () => cue.classList.toggle('gone', scrollY > 40), { passive: true });
+  });
 })();
 </script>
 </body>
