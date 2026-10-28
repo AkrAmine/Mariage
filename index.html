@@ -3,23 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-
-<title>أمين وميساء · دعوة لحضور حفل الزفاف</title>
+<title>❤️ دعوة لحضور حفل الزفاف ❤️</title>
 <meta name="description" content="بكل مشاعر المحبة والسرور، نتشرف بدعوتكم لمشاركتنا فرحة زفافنا ومباركة هذه المناسبة السعيدة.">
-<meta property="og:type" content="website">
 <meta property="og:title" content="❤️ دعوة لحضور حفل الزفاف ❤️">
 <meta property="og:description" content="بكل مشاعر المحبة والسرور، نتشرف بدعوتكم لمشاركتنا فرحة زفافنا ومباركة هذه المناسبة السعيدة.">
-<meta property="og:url" content="https://akramine.github.io/Mariage/">
-<meta property="og:image" content="https://akramine.github.io/Mariage/1.jpeg">
-<meta property="og:image:alt" content="Invitation au mariage de Amine & Mayssa">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://akramine.github.io/Invitation-Mariage/preview.jpg">
+<meta property="og:url" content="https://akramine.github.io/Invitation-Mariage/">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
 <meta name="theme-color" content="#f6f1e9">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Lateef:wght@400;600&family=Mulish:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
 <script>
   document.documentElement.classList.add('js');
   if (location.hash === '#invitation') document.documentElement.classList.add('skip-intro');
@@ -70,15 +67,17 @@ p{margin:0}
 
   position: relative;
   display: table;
-  top: -50px;
-
+  top: -70px;
+transform: translateX(-5px);
   margin: 0 auto 72px;
-  padding: 26px 8px;
+  padding: 26px 3px;
 
-  font-family: Bellefair, serif;
-  font-size: 37px;
-  font-weight: 400;
-  letter-spacing: .08em;
+
+
+font-family: "Aref Ruqaa Ink", "Amiri", serif;
+  font-size: 35px;
+  font-weight: 500;
+  letter-spacing: normal;
   line-height: 1.6;
   text-align: center;
   color: var(--names-ink);
@@ -87,6 +86,35 @@ p{margin:0}
   animation: namesReveal 2.2s cubic-bezier(.22, 1, .36, 1) .3s forwards;
 
 
+}
+.intro .intro-names span[data-k] {
+  font-family: "Amiri", serif;
+  font-size: 35px;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: 1.8;
+margin-inline: 10px;
+  /* Élargir le rendu des prénoms */
+  display: inline-block;
+  transform: scaleX(1.5);
+  transform: scaleY(1.5);
+  transform-origin: center;
+
+  background: linear-gradient(
+    150deg,
+    #c6a15e 0%,
+    #68451e 80%,
+    #24170c 50%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+
+  filter: none !important;
+text-shadow: none !important;
 }
 
 /* Esperluette : italique fine, dorée, apparaît juste après */
@@ -983,7 +1011,10 @@ h2{font-size:36px;line-height:1.15;letter-spacing:.03em;text-align:center}
 .tile small{position:relative;z-index:1;margin-top:8px;font-size:13px;color:var(--mauve)}
 .cd-done{margin-top:36px;font-family:Bellefair,serif;font-size:28px;text-align:center;color:#8c7049}
 
-
+.countdown h2{
+  font-size: 32px;
+  line-height: 1.4;
+}
 
 /* Venue — Elegant Natural Wedding Style */
 .venue {
@@ -997,25 +1028,27 @@ h2{font-size:36px;line-height:1.15;letter-spacing:.03em;text-align:center}
 }
 
 .venue h2 {
-  text-align: right;
+  text-align: center;
   color: #44382e;
   font-family: Lateef, "Noto Naskh Arabic", serif;
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 600;
   line-height: 1.5;
   margin: 0;
   padding-bottom: 12px;
 }
 
+
 .venue h2::after {
   content: "";
   display: block;
   width: 58px;
   height: 2px;
-  margin-top: 5px;
+  margin: 5px auto 0;   /* auto = centré */
   background: #a58b6c;
   border-radius: 2px;
 }
+
 
 .spec {
   margin: 25px 0 30px;
@@ -1035,7 +1068,7 @@ h2{font-size:36px;line-height:1.15;letter-spacing:.03em;text-align:center}
   padding-top: 0;
   color: #8a765f;
   font-family: Lateef, "Noto Naskh Arabic", serif;
-  font-size: 27px;
+  font-size: 24px;
   font-weight: 400;
 }
 
@@ -1043,7 +1076,7 @@ h2{font-size:36px;line-height:1.15;letter-spacing:.03em;text-align:center}
   margin: 0;
   color: #44382e;
   font-family: Lateef, "Noto Naskh Arabic", serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 600;
   line-height: 1.5;
   text-align: right;
@@ -1282,35 +1315,46 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
 }
 
 /* 2 — Noms */
+/* 2 — Noms (calligraphie + dégradé doré) */
+
 .vcard .names{
   position:absolute;top:37%;left:10%;width:80%;margin:0;padding:0;
-  display:grid;grid-template-columns:minmax(0,1fr) 7% minmax(0,1fr);
-  column-gap:2cqw;
+  display:grid;grid-template-columns:minmax(0,1fr) 9cqw minmax(0,1fr);
+  column-gap:1.5cqw;
   align-items:center;justify-items:center;direction:ltr;box-sizing:border-box;
-  font-family:Lateef,"Noto Naskh Arabic",serif;font-style:normal;font-weight:400;
-  font-size:8cqw;line-height:.72;white-space:nowrap;
+  font-family:"Aref Ruqaa",Lateef,"Noto Naskh Arabic",serif;font-style:normal;font-weight:700;
+  font-size:9cqw;line-height:1.1;white-space:nowrap;
 }
+
 .vcard .names .nm{
-  display:block;min-width:0;margin:0;padding:0;
-  font-family:inherit;font-style:normal;font-weight:600;font-size:inherit;line-height:.72;
-  color:#44382e;white-space:nowrap;text-shadow:0 2px 5px rgba(70,55,40,.08);
+  position:relative;display:block;min-width:0;margin:0;padding:0 0 1.2cqw;
+  font-family:inherit;font-style:normal;font-weight:700;font-size:inherit;line-height:1.1;
+  white-space:nowrap;letter-spacing:0;
+  color:#2b2219;                                  /* noir chaud, élégant */
+  text-shadow:0 2px 5px rgba(70,55,40,.10);
+}
+/* petit filet doré sous chaque nom */
+.vcard .names .nm::after{
+  content:"";position:absolute;left:18%;right:18%;bottom:0;height:1px;
+  background:linear-gradient(90deg,transparent,#b89a62,transparent);
 }
 .vcard .names .nm:first-child{animation:vcFromLeft 1.4s cubic-bezier(.22,1,.36,1) .8s both}
 .vcard .names .nm:last-child{animation:vcFromRight 1.4s cubic-bezier(.22,1,.36,1) .8s both}
 
 /* 3 — و central */
+
 .vcard .names .amp{
   position:relative;display:flex;align-items:center;justify-content:center;
-  width:7cqw;height:7cqw;min-width:24px;min-height:24px;margin:0;padding:0;box-sizing:border-box;
+  width:6.5cqw;height:6.5cqw;min-width:0;min-height:0;margin:0;padding:0;box-sizing:border-box;
   border:1px solid rgba(184,154,98,.75);border-radius:50%;
   background:rgba(255,253,249,.96);color:#9a783f;
-  font-family:Lateef,"Noto Naskh Arabic",serif;font-size:4cqw;font-style:normal;font-weight:400;line-height:1;
-  box-shadow:0 0 0 3px rgba(255,253,249,.8);z-index:2;
+  font-family:Lateef,"Noto Naskh Arabic",serif;font-size:3.6cqw;font-style:normal;font-weight:400;line-height:1;
+  box-shadow:0 0 0 .8cqw rgba(255,253,249,.8);z-index:2;
   animation:vcAmp .9s cubic-bezier(.34,1.4,.64,1) 1.5s both;
 }
-.vcard .names .amp::before{content:"";position:absolute;top:50%;right:calc(100% + 4px);width:15px;height:1px;
+.vcard .names .amp::before{content:"";position:absolute;top:50%;right:calc(100% + 1cqw);width:3.5cqw;height:1px;
   background:linear-gradient(to right,transparent,rgba(184,154,98,.65))}
-.vcard .names .amp::after{content:"";position:absolute;top:50%;left:calc(100% + 4px);width:15px;height:1px;
+.vcard .names .amp::after{content:"";position:absolute;top:50%;left:calc(100% + 1cqw);width:3.5cqw;height:1px;
   background:linear-gradient(to left,transparent,rgba(184,154,98,.65))}
 
 /* 4 — Ornement */
@@ -1350,6 +1394,7 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
   font-family:Mulish,sans-serif;font-size:5.7cqw;line-height:1.3;letter-spacing:.08em;color:#8c7657;
   animation:vcFadeUp 1.2s cubic-bezier(.22,1,.36,1) 2.6s both;
 }
+
 .vcard .hero-time [data-k="time"]{font-size:4.2cqw;font-weight:600;letter-spacing:.06em;color:#80643d}
 .vcard .hero-time [data-k="time1"]{font-size:4.2cqw;font-weight:600;letter-spacing:.06em;color:#80643d}
 .vcard .hero-time .time-separator{color:#b89a62;font-size:3cqw;letter-spacing:0}
@@ -1357,22 +1402,20 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
   font-family:Lateef,"Noto Naskh Arabic",serif;font-size:5cqw;line-height:1;letter-spacing:0;color:#8c7658;
 }
 
-
-/* Bloc 1 : عقد القران (remonté) */
-.vcard .hero-date{top:52%}
+/* Bloc 2 : حفل الحنة */
+.vcard .hero-date{top:48%}
 .vcard .hero-time{top:60%}
 
-/* Bloc 2 : حفل الحنة */
-.vcard .hero-date--2{top:70%;animation-delay:3s}
-.vcard .hero-time--2{top:78%;animation-delay:3.4s}
+/* Bloc 1 : عقد القران (remonté) */
+.vcard .hero-date--2{top:71%;animation-delay:3s}
+.vcard .hero-time--2{top:82%;animation-delay:3.4s}
 
 
 /* Mobile : on ne touche plus à la taille des noms */
 @media (max-width:390px){
   .vcard{width:min(90%,360px,calc((100dvh - 105px) * .6977))}
-  .vcard .names{left:9.5%;width:84%;font-size:8.6cqw;column-gap:2.5cqw}
   .vcard .names .amp::before,.vcard .names .amp::after{width:8px}
-  .vcard .hero-date{font-size:7cqw}
+  .vcard .hero-date{font-size:5cqw}
 }
 @media (max-width:340px){
   .vcard .names{font-size:7.2cqw}
@@ -1543,7 +1586,7 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
       aria-hidden="true"
     ></div>
 <p class="hero-date hero-date--2 h-in" style="--i:5">
-     عقد القران الإثنين 28 ديسمبر 2026
+     عقد القران<br> الإثنين 28 ديسمبر 2026
 </p>
 
 <p class="hero-time hero-time--2 h-in" style="--i:6">
@@ -1557,7 +1600,7 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
       dir="rtl"
       lang="ar"
     >
-  العشاء و الحنة السبت 26 ديسمبر 2026
+  العشاء و الحنة <br>السبت 26 ديسمبر 2026
     </p>
 
     <p
@@ -1793,12 +1836,13 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
 <script>
 const CONFIG = {
   groom: "أمين", bride: "ميساء",
-  date: "2026-12-28T21:00:00",
+
+  date: "2026-12-28T21:00:00",          // drives countdown, calendar grid, .ics, all date text
   dateLabel: "الإثنين 28 ديسمبر 2026",
   time: "21:00",
   venue: "بلدية القصبة", city: "تونس",
   mapsQuery: "بلدية القصبة, تونس",
-  date1: "2026-12-26T19:00:00",
+    date1: "2026-12-26T19:00:00",
   time1: "19:00",
   venue1: "الڨمودي للأفراح",
   city1: "سيدي بوزيد",
@@ -1806,163 +1850,112 @@ const CONFIG = {
   groomParents: "M. et Mme [Père du marié] & [Mère du marié]",
   brideParents: "M. et Mme [Père de la mariée] & [Mère de la mariée]",
   whatsapp: "213XXXXXXXXX",
-  rsvpDeadline: ""
+  rsvpDeadline: ""                      // optional; if empty, no deadline is shown
 };
 
 (() => {
   const $ = s => document.querySelector(s);
   const root = document.documentElement;
-  const safe = (name, fn) => { try { fn(); } catch (e) { console.error('[' + name + ']', e); } };
+  /* Grain du velours : bitmap généré une fois (moins coûteux qu'un filtre SVG pendant le zoom) */
+  try {
+    const cv = document.createElement('canvas'); cv.width = cv.height = 128;
+    const cx = cv.getContext('2d'), im = cx.createImageData(128, 128);
+    for (let i = 0; i < im.data.length; i += 4) { const v = Math.random(); im.data[i] = 120; im.data[i + 1] = 98; im.data[i + 2] = 70; im.data[i + 3] = v > .5 ? (v - .5) * 34 : 0; }
+    cx.putImageData(im, 0, 0);
+    root.style.setProperty('--noise', `url(${cv.toDataURL()})`);
+  } catch {}
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const C = CONFIG, D = new Date(C.date);
+  const fmt = o => new Intl.DateTimeFormat('fr-FR', o).format(D);
+  const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+  const couple = `${C.groom} & ${C.bride}`;
 
-  /* ===== 1. Ouverture de l'écrin (en premier, indépendante du reste) ===== */
-  safe('intro', () => {
-    const intro = $('#intro'), inner = $('#introInner'), box = $('.box');
-    if (!intro) { root.classList.remove('locked'); document.body.classList.add('opened'); return; }
+  /* ----- Remplissage depuis CONFIG ----- */
+  const V = { ...C, day: D.getDate(), weekday: cap(fmt({ weekday: 'long' })), monthYear: cap(fmt({ month: 'long', year: 'numeric' })) };
+  document.querySelectorAll('[data-k]').forEach(el => { const v = V[el.dataset.k]; if (v != null && v !== '') el.textContent = v; });
+  document.title = `${couple} · Invitation au mariage`;
 
-    let started = false, done = false;
-    const timers = [];
-    const later = (fn, ms) => timers.push(setTimeout(fn, ms));
+  if (C.rsvpDeadline) { const dl = $('#deadline'); dl.textContent = `Merci de répondre avant le ${C.rsvpDeadline}.`; dl.hidden = false; }
 
-    function finish() {
-      if (done) return; done = true;
-      timers.forEach(clearTimeout);
-      intro.hidden = true; intro.style.display = 'none';
-      root.classList.remove('locked'); document.body.classList.add('opened');
-      if (started) { try { $('#main')?.focus({ preventScroll: true }); } catch {} }
+  /* ----- Rangs de perles (graduées vers le centre) ----- */
+  document.querySelectorAll('[data-pearls]').forEach(row => {
+    const n = 17, mid = (n - 1) / 2;
+    for (let i = 0; i < n; i++) {
+      const d = Math.abs(i - mid), s = 12 - d * 0.75;
+      const p = document.createElement('span');
+      p.className = 'pearl'; p.style.width = p.style.height = s + 'px'; p.style.setProperty('--d', d);
+      row.appendChild(p);
     }
+  });
 
-    function open() {
-      if (started) return; started = true;
-      if (reduce) {
-        intro.classList.add('fade'); document.body.classList.add('opened');
-        later(finish, 520); return;
-      }
-      intro.classList.add('opening');
-      later(() => intro.classList.add('glint'), 820);
-      later(() => {
-        try {
-          const rings = $('#boxRings');
-          if (rings && inner) {
-            const r = rings.getBoundingClientRect(), b = inner.getBoundingClientRect();
-            inner.style.transformOrigin = `${r.left + r.width / 2 - b.left}px ${r.top + r.height * 0.55 - b.top}px`;
-          }
-        } catch {}
-        intro.classList.add('zoom'); document.body.classList.add('opened');
-      }, 1750);
-      later(finish, 2650);
+  /* ----- Compte à rebours ----- */
+  const pad = n => String(n).padStart(2, '0');
+  function countdown(date, s) {
+    const target = new Date(date);
+    const el = {
+      d: $('#cdD' + s), h: $('#cdH' + s), m: $('#cdM' + s), s: $('#cdS' + s),
+      tiles: $('#tiles' + s), done: $('#cdDone' + s)
+    };
+    if (!el.d) return;
+    let timer;
+    function tick() {
+      let t = Math.floor((target - Date.now()) / 1000);
+      if (t <= 0) { el.tiles.hidden = true; el.done.hidden = false; clearInterval(timer); return; }
+      el.d.textContent = pad(Math.floor(t / 86400)); t %= 86400;
+      el.h.textContent = pad(Math.floor(t / 3600)); t %= 3600;
+      el.m.textContent = pad(Math.floor(t / 60));
+      el.s.textContent = pad(t % 60);
     }
+    tick(); timer = setInterval(tick, 1000);
+  }
+  countdown(C.date, '');     // mariage : cdD, cdH, cdM, cdS
+  countdown(C.date1, '1');   // henné   : cdD1, cdH1, cdM1, cdS1
 
-    if (root.classList.contains('skip-intro')) { finish(); return; }
+  /* ----- Apparitions au défilement ----- */
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }),
+    { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
+   /* ----- Ouverture de l'écrin (automatique) ----- */
+  const intro = $('#intro'), inner = $('#introInner');
+  let started = false;
+  function finish() {
+    intro.hidden = true; intro.style.display = 'none';
+    root.classList.remove('locked'); document.body.classList.add('opened');
+    if (started) $('#main').focus({ preventScroll: true });
+  }
+  function open() {
+    if (started) return; started = true;
+    if (reduce) { intro.classList.add('fade'); document.body.classList.add('opened'); setTimeout(finish, 520); return; }
+    intro.classList.add('opening');
+    setTimeout(() => intro.classList.add('glint'), 820);
+    setTimeout(() => {
+      const r = $('#boxRings').getBoundingClientRect(), b = inner.getBoundingClientRect();
+      inner.style.transformOrigin = `${r.left + r.width / 2 - b.left}px ${r.top + r.height * 0.55 - b.top}px`;
+      intro.classList.add('zoom'); document.body.classList.add('opened');
+    }, 1750);
+    setTimeout(finish, 2650);
+  }
+  if (root.classList.contains('skip-intro')) finish();
+  else {
     root.classList.add('locked');
-    $('#skip')?.addEventListener('click', () => { started = true; finish(); });
-    intro.addEventListener('click', () => open());               // un tap ouvre aussi la boîte
 
+	 $('#skip')?.addEventListener('click', () => { started = true; finish(); });
     if (reduce) {
-      later(open, 1200);
+      setTimeout(open, 1200);
     } else {
-      // On démarre la rotation après le premier affichage (iOS ignore parfois sinon)
-      requestAnimationFrame(() => requestAnimationFrame(() => intro.classList.add('spin')));
-      box?.addEventListener('animationend', e => {
+      // La boîte tourne 2 fois, puis s'ouvre toute seule
+      intro.classList.add('spin');
+      $('.box').addEventListener('animationend', e => {
         if (e.animationName !== 'boxSpin') return;
         intro.classList.remove('spin');
         open();
       });
-      later(open, 4200);                                          // si animationend ne se déclenche pas
+      setTimeout(open, 4200); // sécurité si animationend ne se déclenche pas
     }
-
-    later(finish, 9000);                                          // filet de sécurité final
-
-    // Retour arrière du navigateur (iPhone) : on n'affiche pas l'intro de nouveau
-    addEventListener('pageshow', e => { if (e.persisted) finish(); });
-  });
-
-  /* ===== 2. Grain du velours ===== */
-  safe('noise', () => {
-    const cv = document.createElement('canvas'); cv.width = cv.height = 128;
-    const cx = cv.getContext('2d'), im = cx.createImageData(128, 128);
-    for (let i = 0; i < im.data.length; i += 4) {
-      const v = Math.random();
-      im.data[i] = 120; im.data[i + 1] = 98; im.data[i + 2] = 70;
-      im.data[i + 3] = v > .5 ? (v - .5) * 34 : 0;
-    }
-    cx.putImageData(im, 0, 0);
-    root.style.setProperty('--noise', `url(${cv.toDataURL()})`);
-  });
-
-  /* ===== 3. Remplissage depuis CONFIG ===== */
-  const C = CONFIG, D = new Date(C.date);
-  safe('config', () => {
-    const fmt = o => new Intl.DateTimeFormat('fr-FR', o).format(D);
-    const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
-    const couple = `${C.groom} & ${C.bride}`;
-    const V = { ...C, day: D.getDate(), weekday: cap(fmt({ weekday: 'long' })), monthYear: cap(fmt({ month: 'long', year: 'numeric' })) };
-    document.querySelectorAll('[data-k]').forEach(el => {
-      const v = V[el.dataset.k]; if (v != null && v !== '') el.textContent = v;
-    });
-    document.title = `${couple} · Invitation au mariage`;
-    const dl = $('#deadline');
-    if (C.rsvpDeadline && dl) { dl.textContent = `Merci de répondre avant le ${C.rsvpDeadline}.`; dl.hidden = false; }
-  });
-
-  /* ===== 4. Rangs de perles ===== */
-  safe('pearls', () => {
-    document.querySelectorAll('[data-pearls]').forEach(row => {
-      const n = 17, mid = (n - 1) / 2;
-      for (let i = 0; i < n; i++) {
-        const d = Math.abs(i - mid), s = 12 - d * 0.75;
-        const p = document.createElement('span');
-        p.className = 'pearl'; p.style.width = p.style.height = s + 'px'; p.style.setProperty('--d', d);
-        row.appendChild(p);
-      }
-    });
-  });
-
-  /* ===== 5. Comptes à rebours (mariage + henné) ===== */
-  const pad = n => String(n).padStart(2, '0');
-  function countdown(date, s) {
-    safe('countdown' + s, () => {
-      const target = new Date(date);
-      const el = {
-        d: $('#cdD' + s), h: $('#cdH' + s), m: $('#cdM' + s), s: $('#cdS' + s),
-        tiles: $('#tiles' + s), done: $('#cdDone' + s)
-      };
-      if (!el.d || isNaN(target)) return;
-      let timer;
-      function tick() {
-        let t = Math.floor((target - Date.now()) / 1000);
-        if (t <= 0) {
-          if (el.tiles) el.tiles.hidden = true;
-          if (el.done) el.done.hidden = false;
-          clearInterval(timer); return;
-        }
-        el.d.textContent = pad(Math.floor(t / 86400)); t %= 86400;
-        el.h.textContent = pad(Math.floor(t / 3600)); t %= 3600;
-        el.m.textContent = pad(Math.floor(t / 60));
-        el.s.textContent = pad(t % 60);
-      }
-      tick(); timer = setInterval(tick, 1000);
-    });
   }
-  countdown(C.date, '');
-  countdown(C.date1, '1');
-
-  /* ===== 6. Apparitions au défilement ===== */
-  safe('reveal', () => {
-    const els = document.querySelectorAll('.rv');
-    if (!('IntersectionObserver' in window)) { els.forEach(el => el.classList.add('in')); return; }
-    const io = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    }), { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-    els.forEach(el => io.observe(el));
-  });
-
-  /* ===== 7. Indicateur de défilement ===== */
-  safe('cue', () => {
-    const cue = $('.scroll-cue');
-    if (cue) addEventListener('scroll', () => cue.classList.toggle('gone', scrollY > 40), { passive: true });
-  });
+const cue = $('.scroll-cue');
+  if (cue) addEventListener('scroll', () => cue.classList.toggle('gone', scrollY > 40), { passive: true });
 })();
 </script>
 </body>
