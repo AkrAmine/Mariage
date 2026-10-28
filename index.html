@@ -1452,7 +1452,27 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
 
 @media (prefers-reduced-motion:reduce){
   .scroll-cue__line::after{animation:none;top:0;height:100%}
-}</style>
+}
+/* Correction des tailles sur téléphone — première carte */
+@media (max-width: 390px) {
+  .vcard .hero-date {
+    font-size: 8cqw;
+  }
+
+  .vcard .hero-time {
+    font-size: 6.2cqw;
+  }
+
+  .vcard .hero-time [data-k="time"],
+  .vcard .hero-time [data-k="time1"] {
+    font-size: 5cqw;
+  }
+
+  .vcard .hero-time span[dir="rtl"] {
+    font-size: 6cqw;
+  }
+}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
