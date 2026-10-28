@@ -261,6 +261,7 @@ text-shadow: none !important;
 
 
 
+
 /* ---------- Page ---------- */
 .page{position:relative;max-width:480px;margin:0 auto;min-height:100dvh;background:var(--bg);
   box-shadow:0 0 0 1px rgba(163,134,92,.12),0 0 90px rgba(90,80,70,.18)}
@@ -1011,10 +1012,7 @@ h2{font-size:36px;line-height:1.15;letter-spacing:.03em;text-align:center}
 .tile small{position:relative;z-index:1;margin-top:8px;font-size:13px;color:var(--mauve)}
 .cd-done{margin-top:36px;font-family:Bellefair,serif;font-size:28px;text-align:center;color:#8c7049}
 
-.countdown h2{
-  font-size: 32px;
-  line-height: 1.4;
-}
+
 
 /* Venue — Elegant Natural Wedding Style */
 .venue {
@@ -1028,27 +1026,25 @@ h2{font-size:36px;line-height:1.15;letter-spacing:.03em;text-align:center}
 }
 
 .venue h2 {
-  text-align: center;
+  text-align: right;
   color: #44382e;
   font-family: Lateef, "Noto Naskh Arabic", serif;
-  font-size: 32px;
+  font-size: 42px;
   font-weight: 600;
   line-height: 1.5;
   margin: 0;
   padding-bottom: 12px;
 }
 
-
 .venue h2::after {
   content: "";
   display: block;
   width: 58px;
   height: 2px;
-  margin: 5px auto 0;   /* auto = centré */
+  margin-top: 5px;
   background: #a58b6c;
   border-radius: 2px;
 }
-
 
 .spec {
   margin: 25px 0 30px;
@@ -1068,7 +1064,7 @@ h2{font-size:36px;line-height:1.15;letter-spacing:.03em;text-align:center}
   padding-top: 0;
   color: #8a765f;
   font-family: Lateef, "Noto Naskh Arabic", serif;
-  font-size: 24px;
+  font-size: 27px;
   font-weight: 400;
 }
 
@@ -1076,7 +1072,7 @@ h2{font-size:36px;line-height:1.15;letter-spacing:.03em;text-align:center}
   margin: 0;
   color: #44382e;
   font-family: Lateef, "Noto Naskh Arabic", serif;
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
   line-height: 1.5;
   text-align: right;
@@ -1315,46 +1311,35 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
 }
 
 /* 2 — Noms */
-/* 2 — Noms (calligraphie + dégradé doré) */
-
 .vcard .names{
   position:absolute;top:37%;left:10%;width:80%;margin:0;padding:0;
-  display:grid;grid-template-columns:minmax(0,1fr) 9cqw minmax(0,1fr);
-  column-gap:1.5cqw;
+  display:grid;grid-template-columns:minmax(0,1fr) 7% minmax(0,1fr);
+  column-gap:2cqw;
   align-items:center;justify-items:center;direction:ltr;box-sizing:border-box;
-  font-family:"Aref Ruqaa",Lateef,"Noto Naskh Arabic",serif;font-style:normal;font-weight:700;
-  font-size:9cqw;line-height:1.1;white-space:nowrap;
+  font-family:Lateef,"Noto Naskh Arabic",serif;font-style:normal;font-weight:400;
+  font-size:8cqw;line-height:.72;white-space:nowrap;
 }
-
 .vcard .names .nm{
-  position:relative;display:block;min-width:0;margin:0;padding:0 0 1.2cqw;
-  font-family:inherit;font-style:normal;font-weight:700;font-size:inherit;line-height:1.1;
-  white-space:nowrap;letter-spacing:0;
-  color:#2b2219;                                  /* noir chaud, élégant */
-  text-shadow:0 2px 5px rgba(70,55,40,.10);
-}
-/* petit filet doré sous chaque nom */
-.vcard .names .nm::after{
-  content:"";position:absolute;left:18%;right:18%;bottom:0;height:1px;
-  background:linear-gradient(90deg,transparent,#b89a62,transparent);
+  display:block;min-width:0;margin:0;padding:0;
+  font-family:inherit;font-style:normal;font-weight:600;font-size:inherit;line-height:.72;
+  color:#44382e;white-space:nowrap;text-shadow:0 2px 5px rgba(70,55,40,.08);
 }
 .vcard .names .nm:first-child{animation:vcFromLeft 1.4s cubic-bezier(.22,1,.36,1) .8s both}
 .vcard .names .nm:last-child{animation:vcFromRight 1.4s cubic-bezier(.22,1,.36,1) .8s both}
 
 /* 3 — و central */
-
 .vcard .names .amp{
   position:relative;display:flex;align-items:center;justify-content:center;
-  width:6.5cqw;height:6.5cqw;min-width:0;min-height:0;margin:0;padding:0;box-sizing:border-box;
+  width:7cqw;height:7cqw;min-width:24px;min-height:24px;margin:0;padding:0;box-sizing:border-box;
   border:1px solid rgba(184,154,98,.75);border-radius:50%;
   background:rgba(255,253,249,.96);color:#9a783f;
-  font-family:Lateef,"Noto Naskh Arabic",serif;font-size:3.6cqw;font-style:normal;font-weight:400;line-height:1;
-  box-shadow:0 0 0 .8cqw rgba(255,253,249,.8);z-index:2;
+  font-family:Lateef,"Noto Naskh Arabic",serif;font-size:4cqw;font-style:normal;font-weight:400;line-height:1;
+  box-shadow:0 0 0 3px rgba(255,253,249,.8);z-index:2;
   animation:vcAmp .9s cubic-bezier(.34,1.4,.64,1) 1.5s both;
 }
-.vcard .names .amp::before{content:"";position:absolute;top:50%;right:calc(100% + 1cqw);width:3.5cqw;height:1px;
+.vcard .names .amp::before{content:"";position:absolute;top:50%;right:calc(100% + 4px);width:15px;height:1px;
   background:linear-gradient(to right,transparent,rgba(184,154,98,.65))}
-.vcard .names .amp::after{content:"";position:absolute;top:50%;left:calc(100% + 1cqw);width:3.5cqw;height:1px;
+.vcard .names .amp::after{content:"";position:absolute;top:50%;left:calc(100% + 4px);width:15px;height:1px;
   background:linear-gradient(to left,transparent,rgba(184,154,98,.65))}
 
 /* 4 — Ornement */
@@ -1382,7 +1367,7 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
 /* 5 — Date */
 .vcard .hero-date{
   position:absolute;top:56%;left:5%;width:90%;margin:0;padding:0;
-  font-family:Lateef,"Noto Naskh Arabic",serif;font-size:8.5cqw;line-height:1.15;font-weight:600;
+  font-family:Lateef,"Noto Naskh Arabic",serif;font-size:7.5cqw;line-height:1.15;font-weight:600;
   letter-spacing:0;color:#64513a;text-align:center;white-space:nowrap;
   animation:vcFadeUp 1.2s cubic-bezier(.22,1,.36,1) 2.2s both;
 }
@@ -1394,26 +1379,27 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
   font-family:Mulish,sans-serif;font-size:5.7cqw;line-height:1.3;letter-spacing:.08em;color:#8c7657;
   animation:vcFadeUp 1.2s cubic-bezier(.22,1,.36,1) 2.6s both;
 }
-
-.vcard .hero-time [data-k="time"]{font-size:4.7cqw;font-weight:600;letter-spacing:.06em;color:#80643d}
-.vcard .hero-time [data-k="time1"]{font-size:4.7cqw;font-weight:600;letter-spacing:.06em;color:#80643d}
+.vcard .hero-time [data-k="time"]{font-size:4.2cqw;font-weight:600;letter-spacing:.06em;color:#80643d}
+.vcard .hero-time [data-k="time1"]{font-size:4.2cqw;font-weight:600;letter-spacing:.06em;color:#80643d}
 .vcard .hero-time .time-separator{color:#b89a62;font-size:3cqw;letter-spacing:0}
 .vcard .hero-time span[dir="rtl"]{
   font-family:Lateef,"Noto Naskh Arabic",serif;font-size:5cqw;line-height:1;letter-spacing:0;color:#8c7658;
 }
 
-/* Bloc 2 : حفل الحنة */
-.vcard .hero-date{top:48%}
-.vcard .hero-time{top:61%}
 
 /* Bloc 1 : عقد القران (remonté) */
-.vcard .hero-date--2{top:68%;animation-delay:3s}
-.vcard .hero-time--2{top:81%;animation-delay:3.4s}
+.vcard .hero-date{top:52%}
+.vcard .hero-time{top:60%}
+
+/* Bloc 2 : حفل الحنة */
+.vcard .hero-date--2{top:70%;animation-delay:3s}
+.vcard .hero-time--2{top:78%;animation-delay:3.4s}
 
 
 /* Mobile : on ne touche plus à la taille des noms */
 @media (max-width:390px){
   .vcard{width:min(90%,360px,calc((100dvh - 105px) * .6977))}
+  .vcard .names{left:9.5%;width:84%;font-size:8.6cqw;column-gap:2.5cqw}
   .vcard .names .amp::before,.vcard .names .amp::after{width:8px}
   .vcard .hero-date{font-size:7cqw}
 }
@@ -1466,8 +1452,7 @@ textarea.inp{min-height:120px;resize:vertical;line-height:1.55}
 
 @media (prefers-reduced-motion:reduce){
   .scroll-cue__line::after{animation:none;top:0;height:100%}
-}
-</style>
+}</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
